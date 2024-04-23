@@ -6,7 +6,9 @@
 -->
 <html>
 <head>
-    <title>Halcyonic by HTML5 UP</title>
+    <title>
+        <?php the_title();?>
+    </title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <?php wp_head(); ?>
@@ -21,37 +23,28 @@
                 <div class="col-12">
 
                     <!-- Logo -->
-                    <h1><a href="index.html" id="logo">Halcyonic</a></h1>
+                    <h1>
+                        <a href="<?php get_home_url();?>" id="logo">Halcyonic</a>
+                    </h1>
 
                     <!-- Nav -->
                     <nav id="nav">
-                        <a href="index.html">Homepage</a>
-                        <a href="threecolumn.html">Three Column</a>
-                        <a href="twocolumn1.html">Two Column #1</a>
-                        <a href="twocolumn2.html">Two Column #2</a>
-                        <a href="onecolumn.html">One Column</a>
+                        <?php
+                        wp_nav_menu( [
+                            'theme_location'  => 'header',
+                            'echo'            => true,
+                            'container' => false,
+                            'fallback_cb' => '__return_empty_string'
+                        ] );
+                        ?>
                     </nav>
 
                 </div>
             </div>
         </div>
-        <div id="banner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-6 col-12-medium">
-
-                        <!-- Banner Copy -->
-                        <p>We do something really useful, important, and unique. Learn all about it here ...</p>
-                        <a href="#" class="button-large">Go on, click me!</a>
-
-                    </div>
-                    <div class="col-6 col-12-medium imp-medium">
-
-                        <!-- Banner Image -->
-                        <a href="#" class="bordered-feature-image"><img src="images/banner.jpg" alt="" /></a>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php
+            if(is_front_page()){
+                get_template_part('views/partials/header/frontpage-banner', '', []);
+            }
+        ?>
     </section>
