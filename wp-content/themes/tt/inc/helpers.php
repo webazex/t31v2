@@ -32,6 +32,10 @@ function renderNoContentSection( $data = [] ) {
 	get_template_part('views'.DS.'partials'.DS.'empty', '', $args);
 }
 
+function getPlaceholderSrc( string $format = 'webp', $fileName = '' ) {
+	require_once get_template_directory().DS.'classes'.DS.'Core'.DS.'Core.php';
+	return Core::getPlaceholderImageUrl($format, $fileName);
+}
 function getAnyPosts(string $type, array $args = []){
 	require_once get_template_directory().DS.'classes'.DS.'Core'.DS.'Core.php';
 	return Core::getAnyPosts($type, $args);
