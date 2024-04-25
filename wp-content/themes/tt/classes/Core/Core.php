@@ -212,7 +212,7 @@ class Core {
 		}
 	}
 
-	static function getPlaceholderImageUrl(string $format, $fileName = ''){
+	static function getPlaceholderImageUrl(string $format, $fileName = ''):string{
 		switch ($format){
 			case "webp":
 				if(!empty($fileName)){
