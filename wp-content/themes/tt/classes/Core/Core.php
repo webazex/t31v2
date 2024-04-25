@@ -211,4 +211,33 @@ class Core {
 				return [];
 		}
 	}
+
+	static function getPlaceholderImageUrl(string $format, $fileName = ''){
+		switch ($format){
+			case "webp":
+				if(!empty($fileName)){
+					$src = (file_exists(get_template_directory_uri().DS.'src'.DS.$fileName.'.'.$format))?
+						get_template_directory_uri().DS.'src'.DS.$fileName.'.'.$format :
+						get_template_directory_uri().DS.'src'.DS.'placeholder.webp';
+
+				}else{
+					$src =  get_template_directory_uri().DS.'src'.DS.'placeholder.webp';
+				}
+				break;
+			case "png":
+				if(!empty($fileName)){
+					$src = (file_exists(get_template_directory_uri().DS.'src'.DS.$fileName.'.'.$format))?
+						get_template_directory_uri().DS.'src'.DS.$fileName.'.'.$format :
+						get_template_directory_uri().DS.'src'.DS.'placeholder.png';
+
+				}else{
+					$src = get_template_directory_uri().DS.'src'.DS.'placeholder.png';
+				}
+				break;
+			default:
+				$src = get_template_directory_uri().DS.'src'.DS.'placeholder.webp';
+				break;
+		}
+		return $src;
+	}
 }
