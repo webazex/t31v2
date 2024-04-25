@@ -69,9 +69,6 @@ if ( ! empty($anyPosts ) ):
 	</section>
 <?php
 else:
-	get_template_part(
-		'App'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'static'.DIRECTORY_SEPARATOR.'sections'.DIRECTORY_SEPARATOR.'empty',
-		'', ['content' => "Роботи поки відсутні"]
-	);
+	renderNoContentSection();
 endif;
 ?>
