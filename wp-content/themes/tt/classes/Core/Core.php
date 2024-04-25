@@ -1,8 +1,5 @@
 <?php
 class Core {
-	static function init(){
-
-	}
 	static function getWorks(array $args = []){
 		if(!empty($args)){
 			$newArgs = self::__parseArgs($args);
