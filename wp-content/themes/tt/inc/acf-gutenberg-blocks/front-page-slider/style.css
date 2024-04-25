@@ -13,6 +13,7 @@
     padding: 10px;
 }
 .slider__item {
+    position: relative;
     width: 100%;
     border: 1px solid white;
     margin: 0 10px;
