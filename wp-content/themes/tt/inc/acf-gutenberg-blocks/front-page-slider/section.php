@@ -26,9 +26,8 @@ if ( ! empty($anyPosts ) ):
 					<?php foreach($anyPosts as $anyPost):?>
 						<a href="<?php echo $anyPost['link']; ?>" class="slider__item">
 							<div class="item__image-container">
-								<?php if($anyPost['src']):?>
-									<img src="<?php echo $anyPost['src']; ?>" alt="<?php echo $anyPost['title'];?>">
-								<?php endif; ?>
+								<?php $src = ($anyPost['src'] !== false)? $anyPost['src'] : getPlaceholderSrc();?>
+								<img src="<?php echo $src; ?>" alt="<?php echo $anyPost['title'];?>">
 							</div>
 							<div class="item__text-block">
 								<span class="text-block__title">
