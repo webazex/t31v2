@@ -1,0 +1,29 @@
+.slider-features__item-slider-features {
+    position: relative;
+    text-decoration: none;
+    margin: 0 5px;
+}
+.item-slider-features__text {
+    padding: 10px;
+    background-color: #323a3d;
+}
+.image-block__img {
+    width: 100%;
+}
+.item-slider-features__title {
+    position: relative;
+    padding: 10px;
+    background-color: #323a3d;
+}
+.item-slider-features__title::after{
+    position: absolute;
+    content: '';
+    width: 37px;
+    height: 37px;
+    /*border-top: 37px solid transparent; !* высота треугольника *!*/
+    border-right: 37px solid #323a3d; /* ширина треугольника и цвет */
+    top: 0;
+    left: 100%;
+    display: block;
+    clip-path: polygon(0 0, 0% 100%, 100% 100%);
+}
