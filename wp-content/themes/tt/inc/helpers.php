@@ -29,5 +29,9 @@ function renderNoContentSection( $data = [] ) {
 	$args['link-to'] = (!empty($data['link']))? esc_url($data['link']) : get_home_url();
 	$args['text-to-link'] = (!empty($data['text-link']))? $data['text-link'] : __('Повернутись на головну', 'tt');
 	$args['text'] = (!empty($data['text']))? $data['text'] : __('Контент поки відсутній але ми працюємо над цим', 'tt');
-	get_template_part(get_template_directory().DS.'views'.DS.'partials'.DS.'empty', '', $args);
+	get_template_part('views'.DS.'partials'.DS.'empty', '', $args);
+}
+
+function getAnyPosts(string $type, array $args = []){
+	return Core::getAnyPosts($type, $args);
 }
