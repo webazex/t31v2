@@ -44,7 +44,9 @@
         </div>
         <?php
             if(is_front_page()){
-                get_template_part('views/partials/header/frontpage-banner', '', []);
+                $generalSettings = get_field('theme-options', 'option');
+                $settingsHeader = (!empty($generalSettings['settings-header']))? $generalSettings['settings-header'] : [];
+                get_template_part('views/partials/header/frontpage-banner', '', $settingsHeader);
             }
         ?>
     </section>
