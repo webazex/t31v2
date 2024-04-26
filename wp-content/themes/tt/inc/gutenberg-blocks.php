@@ -8,3 +8,5 @@ initGutenBlock('front-page-welcome');
 initGutenBlock('contact-page-form');
 //features
 initGutenBlock('features-section');
+//four-posts
+initGutenBlock('four-posts');
