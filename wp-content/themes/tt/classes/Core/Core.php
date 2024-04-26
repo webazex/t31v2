@@ -240,4 +240,48 @@ class Core {
 		}
 		return $src;
 	}
+
+	static function parseAnyPostObj( object $obj) {
+		$ret = [];
+		switch ($obj->post_type){
+			case "reviews":
+				$ret = [
+					'id' => $obj->ID,
+					'title' => $obj->post_title,
+					'excerpt' => (!empty($obj->post_excerpt)) ? $obj->post_excerpt : get_the_excerpt($obj->ID),
+					'content' => $obj->post_content,
+					'date' => self::getDate($obj->ID),
+					'src' => get_the_post_thumbnail_url($obj->ID, 'full'),
+					'link' => get_permalink($obj->ID),
+				];
+				break;
+			case "post":
+				$ret = [
+					'id' => $obj->ID,
+					'title' => $obj->post_title,
+					'excerpt' => (!empty($obj->post_excerpt)) ? $obj->post_excerpt : get_the_excerpt($obj->ID),
+					'content' => $obj->post_content,
+					'date' => self::getDate($obj->ID),
+					'src' => get_the_post_thumbnail_url($obj->ID, 'full'),
+					'link' => get_permalink($obj->ID),
+				];
+				break;
+			case "works":
+				$data = get_field('data', $obj->ID);
+				$ret = [
+					'id' => $obj->ID,
+					'title' => $obj->post_title,
+					'excerpt' => (!empty($obj->post_excerpt)) ? $obj->post_excerpt : get_the_excerpt($obj->ID),
+					'content' => $obj->post_content,
+					'date' => self::getDate($obj->ID),
+					'estimate' => (!empty($data['estimate']))? $data['estimate'] : '',
+					'price' => (!empty($data['price']))? $data['price'] : '',
+					'src' => get_the_post_thumbnail_url($obj->ID, 'full'),
+					'link' => get_permalink($obj->ID),
+					'reviews' => self::__fetchAcfReviewsObj($data['reviews'])
+				];
+				break;
+		}
+		return $ret;
+	}
 }
