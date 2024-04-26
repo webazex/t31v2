@@ -6,6 +6,8 @@
 .item-slider-features__text {
     padding: 10px;
     background-color: #323a3d;
+    min-height: 290px;
+    margin-bottom: 0;
 }
 .image-block__img {
     width: 100%;
