@@ -47,5 +47,6 @@ if ( ! empty( $data ) ):
 	</div>
 </section>
 <?php else:
+	echo "34242";
 	renderNoContentSection();
 endif; ?>
