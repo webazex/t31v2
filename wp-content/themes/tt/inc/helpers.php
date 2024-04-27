@@ -46,3 +46,7 @@ function parseAnyPost( $obj ) {
 	return Core::parseAnyPostObj($obj);
 }
 
+function getAboutUs(  ) {
+	require_once get_template_directory().DS.'classes'.DS.'Core'.DS.'Core.php';
+	return Core::getAboutUsData();
+}

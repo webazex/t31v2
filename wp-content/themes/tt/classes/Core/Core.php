@@ -284,4 +284,40 @@ class Core {
 		}
 		return $ret;
 	}
+
+	static function getAboutUsData(){
+		$data = get_field('about-us');
+		$ret = [];
+		if(!empty($data)){
+			foreach ($data as $dataItem){
+				switch ($dataItem['acf_fc_layout']){
+					case "text-column":
+						$ret['text-column'] = [
+							'title' =>$dataItem['title'],
+							'subtitle' =>$dataItem['subtitle'],
+							'text' =>$dataItem['text'],
+						];
+						break;
+					case "adv-column":
+						$ret['advantages'] = [
+							'title' =>$dataItem['title'],
+							'subtitle' =>$dataItem['subtitle'],
+							'advantages' => $dataItem['advantages'],
+						];
+						break;
+					case "reviews-column":
+						$ret['reviews'] = [
+							'title' =>$dataItem['title'],
+							'subtitle' =>$dataItem['subtitle'],
+							'reviews' =>$dataItem['reviews'],
+						];
+						break;
+					default:
+						$ret['other'] = $dataItem;
+						break;
+				}
+			}
+		}
+		return $ret;
+	}
 }

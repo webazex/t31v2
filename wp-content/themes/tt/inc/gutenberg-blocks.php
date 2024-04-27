@@ -10,3 +10,5 @@ initGutenBlock('contact-page-form');
 initGutenBlock('features-section');
 //four-posts
 initGutenBlock('four-posts');
+//four-posts
+initGutenBlock('about-us');
